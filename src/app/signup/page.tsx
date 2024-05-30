@@ -4,12 +4,33 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const SignupComponent = () => {
+  const router = useRouter();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSignup = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.post("/api/users/signup", user);
+      console.log("Signup success", response.data);
+      router.push("/login");
+    } catch (error: any) {
+      console.log("Signup failed", error.message);
+      toast.error(error.message);
+    } finally {
+      console.log("nkxjvndkjn");
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-hero-pattern bg-[51%_38%] relative">
       <div className="absolute w-full">{/* <CommonNavbar /> */}</div>
@@ -26,7 +47,7 @@ const SignupComponent = () => {
               #1 remote work platform
             </Link>
           </div>
-
+          <div>{isLoading ? "processing.." : ""}</div>
           <form className="mt-6">
             <input
               type="email"
@@ -45,6 +66,7 @@ const SignupComponent = () => {
             <button
               type="submit"
               className="w-full mt-6 px-2 py-2 font-extrabold rounded-xl hover:text-red-500 bg-red-500 hover:bg-transparent border-2 border-solid border-red-500 transition-all ease-linear"
+              onClick={onSignup}
             >
               Continue
             </button>
