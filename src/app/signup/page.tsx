@@ -17,9 +17,14 @@ const SignupComponent = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSignup = async () => {
+    console.log("onSignup");
     try {
       setIsLoading(true);
+
+      console.log("user", user);
       const response = await axios.post("/api/users/signup", user);
+      console.log("userff", user);
+
       console.log("Signup success", response.data);
       router.push("/login");
     } catch (error: any) {
@@ -48,29 +53,29 @@ const SignupComponent = () => {
             </Link>
           </div>
           <div>{isLoading ? "processing.." : ""}</div>
-          <form className="mt-6">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-            />
+          {/* <form className="mt-6"> */}
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className="block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+          />
 
-            <input
-              type="password"
-              placeholder="Create password"
-              className="block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
-              onChange={(e) => setUser({ ...user, password: e.target.value })}
-            />
+          <input
+            type="password"
+            placeholder="Create password"
+            className="block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+          />
 
-            <button
-              type="submit"
-              className="w-full mt-6 px-2 py-2 font-extrabold rounded-xl hover:text-red-500 bg-red-500 hover:bg-transparent border-2 border-solid border-red-500 transition-all ease-linear"
-              onClick={onSignup}
-            >
-              Continue
-            </button>
-          </form>
+          <button
+            type="submit"
+            className="w-full mt-6 px-2 py-2 font-extrabold rounded-xl hover:text-red-500 bg-red-500 hover:bg-transparent border-2 border-solid border-red-500 transition-all ease-linear"
+            onClick={onSignup}
+          >
+            Continue
+          </button>
+          {/* </form> */}
 
           <div className="text-stone-300 mt-6">
             Already a member?
