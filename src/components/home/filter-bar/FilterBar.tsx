@@ -7,7 +7,7 @@ import DropDownList from "./DropDownList";
 // import NavMenuDropdown from "../../nav/NavMenuDropdown";
 import SalarySlider from "./SalarySlider";
 
-import { orderByList } from "src/utilities/constants";
+// import { orderByList } from "/utilities/constants";
 
 interface DropDownStyle {
   top: string;
