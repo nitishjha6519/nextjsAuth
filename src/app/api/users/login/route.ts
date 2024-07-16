@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
       id: user._id,
       email: user.email,
     };
+    console.log("process.env.TOKEN_SECRET", process.env.TOKEN_SECRET);
 
     const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET!, {
       expiresIn: "1h",
@@ -49,6 +50,7 @@ export async function POST(request: NextRequest) {
 
     return response;
   } catch (error: any) {
+    console.log("error");
     return NextResponse.json({
       error: error.message,
       status: 500,

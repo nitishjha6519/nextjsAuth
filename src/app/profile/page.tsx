@@ -1,7 +1,13 @@
-import React from "react";
+// import AboutComponent from "src/components/profile/About";
+import ProjectsComponent from "../../components/profile/projects";
+import MyProfileLayout from "../../components/profile";
 
-const page = () => {
-  return <div>page</div>;
-};
-
-export default page;
+export default function Index() {
+  return (
+    <>
+      <MyProfileLayout>
+        <ProjectsComponent />
+      </MyProfileLayout>
+    </>
+  );
+}
