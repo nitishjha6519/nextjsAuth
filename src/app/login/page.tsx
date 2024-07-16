@@ -52,14 +52,14 @@ const LoginComponent = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            className="block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
+            className=" mt-6 block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
 
           <input
             type="password"
             placeholder="Create password"
-            className="block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
+            className=" block w-full mb-2 outline-none p-2 bg-white rounded-md shadow-[0_0_0_1px_rgba(255,255,255,0.1)] focus:shadow-[0_0_0_5px_rgba(255,75,66,0.5)]"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <button
