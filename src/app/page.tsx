@@ -14,8 +14,8 @@ import SubscribeAlertBar from "../components/home/overlays/SubscribeAlertBar";
 const Home: React.FC = () => {
   return (
     <>
-      <div className="relative h-[450px] bg-hero-pattern bg-[51%_38%] bg-no-repeat bg-cover">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50"></div>
+      <div className="relative h-[450px] bg-gradient-to-b from-blue-900 to-black">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-30"></div>
         <Navbar />
 
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-5xl mt-14 user-select-none text-white">
